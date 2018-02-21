@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>네트워크 페이지</h1>
+    </div>
+
+    <textarea name = "msg-box" id="msg-box" cols="30" rows="10"></textarea>
+    <Input type="text" id="input-msg", name="input-msg" placeholder="메시지 입력"/>
+    <button type="submit" onclick="showMessage()">전송</button>
+
+</body>
+<script>
+    function showToast(msg){
+        hybrid.showToast(msg);
+    }
+
+    function sendSms(phone, msg){
+        hybrid.sendSms(phone, msg);
+    }
+
+    function showMessage(){
+        var msg = document.getElementById('input-msg').value;
+        var msgBox = document.getElementById('msg-box');
+        msgBox.innerHTML = msg;
+        showToast(msg);
+        sendSms(msg);
+    }
+</script>
+</html>
